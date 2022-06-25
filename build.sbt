@@ -4,6 +4,7 @@ ThisBuild / scalaVersion := "3.1.2"
 lazy val root = (project in file(".")).settings(
   name := "zio-game-of-life-csp",
   javacOptions ++= Seq("--release", "17"),
+  compileOrder := CompileOrder.JavaThenScala,
   libraryDependencies ++= Seq(
     "dev.zio" %% "zio" % "2.0.0",
     "dev.zio" %% "zio-test" % "2.0.0" % Test,
