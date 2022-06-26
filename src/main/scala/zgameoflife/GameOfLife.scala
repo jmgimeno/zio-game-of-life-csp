@@ -30,8 +30,8 @@ abstract class GameOfLife:
     tick.forever
 
   val start: Task[Nothing] =
-    ZIO.foreachPar(cells)(_.start).withParallelismUnbounded
-      *> run
+    ZIO.foreachParDiscard(cells)(_.start).withParallelismUnbounded
+      `zipPar` run
 
 object GameOfLife:
   def make(
